@@ -3,6 +3,8 @@ package com.rxStore;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import rx.Observable;
+
 public class RxStore {
 
     private static final RxStore INSTANCE = new RxStore();
@@ -17,7 +19,8 @@ public class RxStore {
     }
 
     public void save(String id, Object object) {
-        data.put(id, object);
+        data.put(id, Observable.just(object));
+
     }
 
     public Object get(String id) {
@@ -36,5 +39,9 @@ public class RxStore {
                 data.remove(k);
             }
         }
+    }
+
+    public void notifyDataChanged(String key) {
+
     }
 }
