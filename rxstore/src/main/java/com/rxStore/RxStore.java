@@ -30,9 +30,9 @@ public class RxStore {
         }
     }
 
-    public void removeAll(String key) {
+    public void removeAll(String keyPart) {
         for (String k : data.keySet()) {
-            if (k.toLowerCase().contains(key.toLowerCase())) {
+            if (k.toLowerCase().contains(keyPart.toLowerCase())) {
                 data.remove(k);
             }
         }
