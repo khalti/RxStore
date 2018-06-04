@@ -20,5 +20,4 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class android.support.v8.renderscript.** { *; }
 -dontwarn sun.misc.Unsafe

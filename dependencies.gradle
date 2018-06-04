@@ -8,12 +8,12 @@ ext {
 
     butterKnifeVersion = '8.8.0'
 
-    rxVersion = '1.1.0'
-    rxAndroidVersion = '1.2.1'
+    rxVersion = '2.1.14'
+    rxAndroidVersion = '2.0.2'
 
     rx = [
-            rxjava            : "io.reactivex:rxjava:${rxVersion}",
-            rxandroid         : "io.reactivex:rxandroid:${rxAndroidVersion}"
+            rxjava            : "io.reactivex.rxjava2:rxjava:$rxVersion",
+            rxandroid         : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     ]
 
     junitVersion = '4.12'
