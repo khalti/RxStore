@@ -17,7 +17,7 @@ install {
                 // Add your description here
                 name properties.getProperty("library.name")
                 description properties.getProperty("library.description")
-                url
+                url properties.getProperty("site.url")
 
                 // Set your license
                 licenses {
