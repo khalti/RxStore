@@ -3,8 +3,7 @@ package com.rxStore;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import rx.Observable;
-import rx.subjects.PublishSubject;
+import io.reactivex.subjects.PublishSubject;
 
 public class RxStore {
 
@@ -25,7 +24,7 @@ public class RxStore {
         notifyValueChanged(key);
     }
 
-    public Observable<Object> get(String key) {
+    public PublishSubject<Object> get(String key) {
         index.put(key, PublishSubject.create());
         return index.get(key);
     }
