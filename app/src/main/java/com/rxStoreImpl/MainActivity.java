@@ -3,8 +3,10 @@ package com.rxStoreImpl;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rxStore.RxStore;
 
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        RxStore.getInstance().save("test", 1233);
+
         RxStore.getInstance().get("add1").subscribe(o -> {
             if (o != null) {
                 txt.setText(o + "");
@@ -41,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
                 txt2.setText(o + "");
             }
         });
-        btnAddTwo.setOnClickListener(view -> RxStore.getInstance().save("add2", Integer.parseInt(txt2.getText().toString()) + 2));
+        btnAddTwo.setOnClickListener(view -> {
+            RxStore.getInstance().save("add2", Integer.parseInt(txt2.getText().toString()) + 2);
+            RxStore.getInstance().get("test").subscribe(o -> {
+                Log.i("store", o + "");
+                if (o != null) {
+                    Toast.makeText(this, o + "", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
     }
 }

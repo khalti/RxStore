@@ -21,7 +21,13 @@ public class RxStore {
 
     public void save(String key, Object value) {
         data.put(key, value);
-        notifyValueChanged(key);
+        if (index.containsKey(key)) {
+            notifyValueChanged(key);
+        }
+    }
+
+    public Object getRaw(String key) {
+        return data.get(key);
     }
 
     public PublishSubject<Object> get(String key) {
