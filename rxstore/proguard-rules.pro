@@ -19,5 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#statelayout widget
+
+-keep class com.rxStore.** { *; }
 
 -dontwarn sun.misc.Unsafe
+-dontwarn java.lang.invoke.*
